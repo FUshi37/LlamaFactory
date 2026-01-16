@@ -24,6 +24,14 @@
       "tools": "tools"
     }
   },
+  "eyjafjalla_sft": {
+    "file_name": "eyjafjalla_sft.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    }
+  },
   "mllm_demo": {
     "file_name": "mllm_demo.json",
     "formatting": "sharegpt",
