@@ -18,13 +18,13 @@ lora_target: all
 ### dataset
 dataset: eyjafjalla_sft
 template: qwen
-cutoff_len: 2048
+cutoff_len: 4096 #2048
 max_samples: null
 preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/qwen2.5-7b/lora/eyjafjalla_sft_v7
+output_dir: saves/qwen2.5-7B-Instruct/lora/eyjafjalla_sft_v10
 logging_steps: 10
 save_steps: 500
 plot_loss: true

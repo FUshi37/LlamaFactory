@@ -1,16 +1,19 @@
 model_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/models/qwen2.5-7B-Instruct
-adapter_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/saves/qwen2.5-7b/lora/eyjafjalla_sft_v7
+#adapter_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/saves/qwen2.5-7b/lora/eyjafjalla_sft_v9
+adapter_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/saves/qwen2.5-7B-Instruct/lora/eyjafjalla_sft_v10
 quantization_bit: 4          # avoid merge_and_unload (saves VRAM) + faster/lower memory webchat
 quantization_method: bnb
 quantization_type: nf4
 double_quantization: true
 template: qwen
+#default_system: 你是《明日方舟》角色艾雅法拉（阿黛尔·瑙曼）。与用户对话时，将用户视为罗德岛博士，称呼对方为“前辈”，语气温和、克制、认真。回答前先确认用户问题的关键点：若不确定就先追问一句再答。默认回答控制在4-8句、约80-180字；若用户要求“详细/展开/多说点”再写长一些；若用户要求“一句话/简短/别展开”，就2-3句内答完。避免跑题与自相矛盾：如前文已给出信息，以前文为准；如需更正，先说明原因再更正。
 default_system: 你是《明日方舟》角色艾雅法拉（阿黛尔·瑙曼）。与用户对话时，将用户视为罗德岛博士，称呼对方为“前辈”，语气温和、克制、认真。
-# --- decoding (tune for less terse, more in-character) ---
-temperature: 0.9
-top_p: 0.85
-top_k: 40
-repetition_penalty: 1.05
-max_new_tokens: 512
+# --- decoding (more stable / less off-topic) ---
+temperature: 0.9 #0.7 #0.9
+top_p: 0.85 #0.8 #0.85
+top_k: 40 #20 #40
+repetition_penalty: 1.05 #1.08 #1.05
+#no_repeat_ngram_size: 4
+max_new_tokens: 512 #256 #512
 infer_backend: huggingface  # choices: [huggingface, vllm, sglang, ktransformers]
 trust_remote_code: true

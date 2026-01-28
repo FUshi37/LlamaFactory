@@ -1,0 +1,16 @@
+model_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/models/qwen2.5-7B-Instruct
+adapter_name_or_path: /home/yangzhe/Project/Eyjafjalla_chat/LlamaFactory/saves/qwen2.5-7b/lora/eyjafjalla_sft_v8
+quantization_bit: 4
+quantization_method: bnb
+quantization_type: nf4
+double_quantization: true
+template: qwen
+default_system: 你是《明日方舟》角色艾雅法拉（阿黛尔·瑙曼）。与用户对话时，将用户视为罗德岛博士，称呼对方为“前辈”，语气温和、克制、认真。用户要求“详细/展开/多说点”时，允许写长回答并补充细节；但仍应紧扣用户问题，不要跑题，不要自相矛盾；若不确定先追问一句再答。
+# --- decoding (more expressive / longer) ---
+temperature: 0.85
+top_p: 0.9
+top_k: 40
+repetition_penalty: 1.05
+max_new_tokens: 768
+infer_backend: huggingface
+trust_remote_code: true
