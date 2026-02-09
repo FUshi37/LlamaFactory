@@ -314,6 +314,8 @@ def build_samples_from_file(
     allow_nsfw: bool,
     min_assistant_chars: int,
     max_turns: int,
+    max_human_chars: int,
+    max_assistant_chars: int,
 ) -> Tuple[List[dict], dict]:
     text = path.read_text(encoding="utf-8", errors="ignore")
     paras = split_paragraphs(text)
@@ -343,8 +345,8 @@ def build_samples_from_file(
         turns,
         min_chars=min_assistant_chars,
         max_turns=max_turns,
-        max_human_chars=360,
-        max_assistant_chars=420,
+        max_human_chars=max_human_chars,
+        max_assistant_chars=max_assistant_chars,
     )
 
     # Convert to ShareGPT samples
@@ -445,6 +447,8 @@ def main() -> None:
             allow_nsfw=bool(args.allow_nsfw),
             min_assistant_chars=int(args.min_assistant_chars),
             max_turns=int(args.max_turns),
+            max_human_chars=int(args.max_human_chars),
+            max_assistant_chars=int(args.max_assistant_chars),
         )
         report_items.append(rep)
         all_samples.extend(samples)
@@ -505,6 +509,8 @@ def main() -> None:
         "allow_nsfw": bool(args.allow_nsfw),
         "max_turns": int(args.max_turns),
         "min_assistant_chars": int(args.min_assistant_chars),
+        "max_human_chars": int(args.max_human_chars),
+        "max_assistant_chars": int(args.max_assistant_chars),
         "items": report_items,
     }
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

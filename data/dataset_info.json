@@ -32,6 +32,14 @@
       "system": "system"
     }
   },
+  "eyjafjalla_tongren_sft": {
+    "file_name": "eyjafjalla_tongren_sft.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    }
+  },
   "mllm_demo": {
     "file_name": "mllm_demo.json",
     "formatting": "sharegpt",
